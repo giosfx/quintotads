@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <p>Nome</p>
+        <input type="text" name="nome" id="nome">
+        <br><br>
+        <p>Idade</p>
+        <input type="text" name="idade" id="age">
+        <p>Sexo</p> 
+        <input type="radio" name="genero" id="m">Masculino
+        <input type="radio" name="genero" id="f">Feminino
+        <br><br>
+        <button type="button" onclick="add()">Adicionar</button>
+        <button type="button" onclick="woman()">Listar Mulheres</button>
+        <button type="button" onclick="men()">Listar Homens</button><br>
+        <button type="button" onclick="children()">Listar Crianças</button>
+        <button type="button" onclick="add()">Listar Adolescente</button>
+        <p id="lista"></p>
+
+    </body>
+    <script>
+        let vetor=[];
+        function add(){
+            let nome=document.getElementById("nome").value;
+            let idade=parseInt(document.getElementById("age").value);
+            let gender=document.querySelector('input[name="genero"]:checked').value;
+
+            vetor=[{nome:nome,idade:idade,genero:gender}];
+            document.getElementById("lista").innerHTML=JSON.stringify(vetor[0]);
+        }
+        function woman(){
+            for (let i=0;i<vetor.length;i++){
+                if (vetor[i].gender==f)
+                    document.getElementById("lista").innerHTML=JSON.stringify(vetor[i]);
+            }
+
+        }
+    </script>
+</html>
