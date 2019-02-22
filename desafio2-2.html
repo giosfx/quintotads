@@ -10,6 +10,45 @@
     <br><br>
     <button type="button" onclick="calcIMC()">Calcular IMC</button>
     <button type="button" onclick="classification()">Classificação</button>
+    <br><br>
+    <p id="imc"></p>
+    <p id="class"></p>
+
+
 </body>
+
+<script>
+    function calcIMC(){
+
+        let peso=parseFloat(document.getElementById("peso").value);
+        let altura=parseFloat(document.getElementById("altura").value);
+        let imc=peso/(altura*altura);
+        
+        document.getElementById("imc").innerHTML="Seu IMC é "+imc.toFixed(2);
+ 
+    }
+    function classification(){
+
+        let peso=parseFloat(document.getElementById("peso").value);
+        let altura=parseFloat(document.getElementById("altura").value);
+        
+        let imc=peso/(altura*altura);
+
+        if (imc < 18){
+            document.getElementById("class").innerHTML='<span style="color:red;">Abaixo do peso</span>';
+        }else if (imc > 18 && imc < 25){
+            document.getElementById("class").innerHTML='<span style="color:blue;">Ideal</span>';
+        }else if (imc > 25 && imc < 30){
+            document.getElementById("class").innerHTML='<span style="color:yellow;">Sobre o peso</span>';
+        }else if (imc > 30 && imc < 35){
+            document.getElementById("class").innerHTML='<span style="color:orange;">Obesidade 1</span>';
+        }else if (imc > 35 && imc < 40){
+            document.getElementById("class").innerHTML='<span style="color:purple;">Obesidade 2</span>';    
+        }else if (imc > 40){
+            document.getElementById("class").innerHTML="Obesidade 3";
+        }
+    }
+    
+</script>
 
 </html>
