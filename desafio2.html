@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    Nome:<br>
+    <input type="text" name="nome" id="nome">
+    <input type="radio" name="genero" value="m"> Masculino
+    <input type="radio" name="genero" value="f"> Feminino
+    <button type="button" onclick="add()">Adicionar</button>
+    <button type="button" onclick="mulheres()">Listar Mulheres</button>
+    <button type="button" onclick="homens()">Listar Homens</button>
+
+    <br><br>
+
+    <script>
+        let array = [];
+        let genero = "";
+        let escrever;
+        function add() {
+
+            genero = document.querySelector('input[name="genero"]:checked').value;
+            let nome = document.getElementById("nome").value;
+
+            array.push({ nome: nome, genero: genero });
+
+        }
+        //array.push({ name: 'abc', value: 'def' });
+        function mulheres() {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].genero == "f") {
+                    alert(JSON.stringify(array[i]));
+                }
+            }
+        }
+
+        function homens() {
+
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].genero == "m") {
+                    alert(JSON.stringify(array[i]));
+                }
+            }
+        }       
+    </script>
+</body>
+
+</html>
