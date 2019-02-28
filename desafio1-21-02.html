@@ -1,0 +1,43 @@
+<html>
+    <body>
+
+        <h1>Pares / Ímpares</h1>
+        <br>
+        <input type="number" id="enter">
+        <button type="button" onclick=add()>Adicionar</button>
+        <br><br>
+        <p id="numbers"></p>
+        <br><br>
+        <button type="button" onclick=pares()>Imrimir Pares</button>
+        <button type="button" onclick=impares()>Imprimir Ímpares</button>
+        <p type="pares"></p>
+        <p type="impares"></p>
+        
+        <script>
+            
+            var number=[];
+            var par=[];
+            //adicionar e imprimir valores
+            function add(){
+
+                number.push(parseInt(document.getElementById("enter").value));
+                document.getElementById("numbers").innerHTML = number.join(", ");
+
+            }
+
+            function pares(){
+ 
+                for(let i=0;i<number.length;i++){
+
+                    if((number[i] % 2) == 0)
+                        par.push(number[i]);
+
+                }
+
+                document.getElementById("pares").innerHTML=par.join(", ");
+
+            }
+
+        </script>
+    </body>
+</html>
