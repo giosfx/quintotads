@@ -10,13 +10,14 @@
         <br><br>
         <button type="button" onclick=pares()>Imrimir Pares</button>
         <button type="button" onclick=impares()>Imprimir Ímpares</button>
-        <p type="pares"></p>
-        <p type="impares"></p>
+        <p id="tituloPares"></p>
+        <p id="pares"></p>
+        <p id="tituloImpares"></p>
+        <p id="impares"></p>
         
         <script>
             
             var number=[];
-            var par=[];
             //adicionar e imprimir valores
             function add(){
 
@@ -26,15 +27,38 @@
             }
 
             function pares(){
- 
+                var par='';
+                document.getElementById("tituloPares").innerHTML="Pares";
                 for(let i=0;i<number.length;i++){
 
-                    if((number[i] % 2) == 0)
-                        par.push(number[i]);
-
+                    if((number[i] % 2) == 0){
+                        if(i != (number.length - 1)){
+                            par += number[i] + ", ";
+                        }else{
+                            par += number[i]
+                        }
+                    }
                 }
 
-                document.getElementById("pares").innerHTML=par.join(", ");
+                document.getElementById("pares").innerHTML=par;
+
+            }
+
+            function impares(){
+                var impar='';
+                document.getElementById("tituloImpares").innerHTML="Impares";
+                for(let i=0;i<number.length;i++){
+
+                    if((number[i] % 2) != 0){
+                        if(i != (number.length - 1)){
+                            impar += number[i] + ", ";
+                        }else{
+                            impar += number[i]
+                        }
+                    }
+                }
+
+                document.getElementById("impares").innerHTML=impar;
 
             }
 
