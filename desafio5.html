@@ -3,18 +3,53 @@
 
         <h1>Pares / Ímpares</h1>
         <br>
-        <input type="number" id="enter">
-        <button type="button" onclick=add()>Adicionar</button>
-        <br><br>
+        <div class="entradas">
+            <input type="number" id="enter" placeholder="Insira os números">
+            <button type="button" onclick=add()>Adicionar</button>
+        </div>
+        <br>
         <p id="numbers"></p>
-        <br><br>
-        <button type="button" onclick=pares()>Imrimir Pares</button>
-        <button type="button" onclick=impares()>Imprimir Ímpares</button>
-        <p id="tituloPares"></p>
-        <p id="pares"></p>
-        <p id="tituloImpares"></p>
-        <p id="impares"></p>
+        <br>
+        <div class="bottons">
+            <button type="button" onclick=pares()>Imrimir Pares</button>
+            <button type="button" onclick=impares()>Imprimir Ímpares</button>
+        </div>
         
+        <style>
+        #numbers{
+            text-align: center;
+            font-family: cursive;
+            font-size: 45px
+        }
+        h1{
+            text-align: center;
+            font-family: cursive;
+        }
+        input[type=number]{
+            display: flex;
+            align-self: center;
+            padding: 4px 15px;
+            font-family: cursive;
+            border-radius: 4px;
+            border: 2px solid #555;
+
+        }
+        div.entradas{
+            display: flex;
+            justify-content: center;
+        }
+        div.bottons{
+            display: flex;
+            justify-content: center;
+        }
+        button[type=button]{
+            font-family: cursive;
+            margin: 12px 2px;
+            font-size: 17px
+
+        }
+        </style>
+
         <script>
             
             var number=[];
@@ -27,38 +62,30 @@
             }
 
             function pares(){
-                var par='';
-                document.getElementById("tituloPares").innerHTML="Pares";
+                var par=[];
+                document.getElementById("numbers").innerHTML="Pares<br>";
                 for(let i=0;i<number.length;i++){
 
                     if((number[i] % 2) == 0){
-                        if(i != (number.length - 1)){
-                            par += number[i] + ", ";
-                        }else{
-                            par += number[i]
-                        }
+                            par.push(number[i]);
                     }
                 }
 
-                document.getElementById("pares").innerHTML=par;
+                document.getElementById("numbers").innerHTML+=par.join(", ");
 
             }
 
             function impares(){
-                var impar='';
-                document.getElementById("tituloImpares").innerHTML="Impares";
+                var impar=[];
+                document.getElementById("numbers").innerHTML="Impares<br>";
                 for(let i=0;i<number.length;i++){
 
                     if((number[i] % 2) != 0){
-                        if(i != (number.length - 1)){
-                            impar += number[i] + ", ";
-                        }else{
-                            impar += number[i]
-                        }
+                            impar.push(number[i]);
                     }
                 }
 
-                document.getElementById("impares").innerHTML=impar;
+                document.getElementById("numbers").innerHTML+=impar.join(", ");
 
             }
 
