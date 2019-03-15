@@ -1,94 +1,99 @@
 <html>
-    <body>
 
-        <h1>Pares / Ímpares</h1>
-        <br>
-        <div class="entradas">
-            <input type="number" id="enter" placeholder="Insira os números">
-            <button type="button" onclick=add()>Adicionar</button>
-        </div>
-        <br>
-        <p id="numbers"></p>
-        <br>
-        <div class="bottons">
-            <button type="button" onclick=pares()>Imrimir Pares</button>
-            <button type="button" onclick=impares()>Imprimir Ímpares</button>
-        </div>
-        
-        <style>
-        #numbers{
-            text-align: center;
-            font-family: cursive;
-            font-size: 45px
-        }
-        h1{
-            text-align: center;
-            font-family: cursive;
-        }
-        input[type=number]{
-            display: flex;
-            align-self: center;
-            padding: 4px 15px;
-            font-family: cursive;
-            border-radius: 4px;
-            border: 2px solid #555;
+<body>
 
-        }
-        div.entradas{
-            display: flex;
-            justify-content: center;
-        }
-        div.bottons{
-            display: flex;
-            justify-content: center;
-        }
-        button[type=button]{
-            font-family: cursive;
-            margin: 12px 2px;
-            font-size: 17px
+    <h1>Pares / Ímpares</h1>
+    <br>
+    <div class="entradas">
+        <input type="number" id="enter" placeholder="Insira os números">
+        <button type="button" onclick=add()>Adicionar</button>
+    </div>
+    <br>
+    <p id="numbers"></p>
+    <br>
+    <div class="bottons">
+        <button type="button" onclick=pares()>Imrimir Pares</button>
+        <button type="button" onclick=impares()>Imprimir Ímpares</button>
+    </div>
+</body>
+<style>
+    #numbers {
+        text-align: center;
+        font-family: cursive;
+        font-size: 45px
+    }
 
-        }
-        </style>
+    h1 {
+        text-align: center;
+        font-family: cursive;
+    }
 
-        <script>
-            
-            var number=[];
-            //adicionar e imprimir valores
-            function add(){
+    input[type=number] {
+        display: flex;
+        align-self: center;
+        padding: 4px 15px;
+        font-family: cursive;
+        border-radius: 4px;
+        border: 2px solid #555;
 
-                number.push(parseInt(document.getElementById("enter").value));
-                document.getElementById("numbers").innerHTML = number.join(", ");
+    }
 
+    div.entradas {
+        display: flex;
+        justify-content: center;
+    }
+
+    div.bottons {
+        display: flex;
+        justify-content: center;
+    }
+
+    button[type=button] {
+        font-family: cursive;
+        margin: 12px 2px;
+        font-size: 17px
+    }
+</style>
+
+<script>
+
+    var number = [];
+    //adicionar e imprimir valores
+    function add() {
+
+        number.push(parseInt(document.getElementById("enter").value));
+        document.getElementById("numbers").innerHTML = number.join(", ");
+
+    }
+
+    function pares() {
+        var par = [];
+        document.getElementById("numbers").innerHTML = "Pares<br>";
+        for (let i = 0; i < number.length; i++) {
+
+            if ((number[i] % 2) == 0) {
+                par.push(number[i]);
             }
+        }
 
-            function pares(){
-                var par=[];
-                document.getElementById("numbers").innerHTML="Pares<br>";
-                for(let i=0;i<number.length;i++){
+        document.getElementById("numbers").innerHTML += par.join(", ");
 
-                    if((number[i] % 2) == 0){
-                            par.push(number[i]);
-                    }
-                }
+    }
 
-                document.getElementById("numbers").innerHTML+=par.join(", ");
+    function impares() {
+        var impar = [];
+        document.getElementById("numbers").innerHTML = "Impares<br>";
+        for (let i = 0; i < number.length; i++) {
 
+            if ((number[i] % 2) != 0) {
+                impar.push(number[i]);
             }
+        }
 
-            function impares(){
-                var impar=[];
-                document.getElementById("numbers").innerHTML="Impares<br>";
-                for(let i=0;i<number.length;i++){
+        document.getElementById("numbers").innerHTML += impar.join(", ");
 
-                    if((number[i] % 2) != 0){
-                            impar.push(number[i]);
-                    }
-                }
+    }
 
-                document.getElementById("numbers").innerHTML+=impar.join(", ");
+</script>
 
-            }
-
-        </script>
-    </body>
 </html>
