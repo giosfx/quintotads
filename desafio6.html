@@ -1,0 +1,89 @@
+<html>
+    <Body>
+        <h1>Cadastro</h1>
+        <div class="insertname">
+            <input type="text" class="input" placeholder="Nome" id="insertname">
+            <button type="submit" onclick="add()">Adicionar</button>
+        </div>
+        <h2>Busca por nome</h2>
+        <div class="insertsearch">
+            <input type="text" class="input" placeholder="Pesquisa" id="search-input">
+            <button type="submit" class="input" onclick="search()">Pesquisar</button>
+        </div>
+
+        <p id="search-results"></p>
+
+    </Body>
+    <style>
+        button[type=submit]{
+            font-family: cursive;
+            border: 2ppx solid #555;
+            border-radius: 4ppx;
+            background-color:white;
+            cursor: pointer;
+            margin: 10ppx 12ppx;
+
+        }
+        input[type=text]{
+            font-family: cursive;
+            width: 130px;
+            border-radius: 4px;
+            font-size: 16px;
+            background-repeat: no-repeat;
+            border: 2px solid #555;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            padding: 12px 20px 12px 10px;
+
+        }
+        input[type=text]:focus{
+            width: 60%;
+        }
+        h1{
+            text-align: center;
+            font-family: cursive;
+        }
+        div.insertname {
+            display: flex;
+            justify-content: center;
+
+        }
+        h2{
+            text-align: center;
+            font-family: cursive;
+        }
+        div.insertsearch{
+            justify-content:center;
+            display: flex; 
+        }
+        #search-results{
+            text-align: center;
+            font-family: cursive;
+        }
+    </style>
+    <script>
+        var nomes = [];
+        
+        function add(){
+             nomes.push(document.getElementById("insertname").value); 
+        }
+        
+        function search(){
+            //innerHTML para limpar a tela de resultados
+            document.getElementById("search-results").innerHTML="";
+            //estrutura de pesquisa
+            let searchFor = document.getElementById("search-input").value.toLowerCase();
+            let results=[];
+            for(let i=0;i<nomes.length;i++){
+                if(nomes[i].toLowerCase().indexOf(searchFor)>-1){
+                    //document.getElementById("search-results").innerHTML+=nomes[i]+"<br>";
+                    results.push(nomes[i]);    
+                } 
+            }
+            if(results.length==0)
+                document.getElementById("search-results").innerHTML="Nenhum resultado encontrado";
+            else
+                document.getElementById("search-results").innerHTML=results.join(", ");
+        }
+    </script>
+</html>
