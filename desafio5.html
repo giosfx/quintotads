@@ -1,0 +1,67 @@
+<html>
+    <body>
+
+        <h1>Pares / Ímpares</h1>
+        <br>
+        <input type="number" id="enter">
+        <button type="button" onclick=add()>Adicionar</button>
+        <br><br>
+        <p id="numbers"></p>
+        <br><br>
+        <button type="button" onclick=pares()>Imrimir Pares</button>
+        <button type="button" onclick=impares()>Imprimir Ímpares</button>
+        <p id="tituloPares"></p>
+        <p id="pares"></p>
+        <p id="tituloImpares"></p>
+        <p id="impares"></p>
+        
+        <script>
+            
+            var number=[];
+            //adicionar e imprimir valores
+            function add(){
+
+                number.push(parseInt(document.getElementById("enter").value));
+                document.getElementById("numbers").innerHTML = number.join(", ");
+
+            }
+
+            function pares(){
+                var par='';
+                document.getElementById("tituloPares").innerHTML="Pares";
+                for(let i=0;i<number.length;i++){
+
+                    if((number[i] % 2) == 0){
+                        if(i != (number.length - 1)){
+                            par += number[i] + ", ";
+                        }else{
+                            par += number[i]
+                        }
+                    }
+                }
+
+                document.getElementById("pares").innerHTML=par;
+
+            }
+
+            function impares(){
+                var impar='';
+                document.getElementById("tituloImpares").innerHTML="Impares";
+                for(let i=0;i<number.length;i++){
+
+                    if((number[i] % 2) != 0){
+                        if(i != (number.length - 1)){
+                            impar += number[i] + ", ";
+                        }else{
+                            impar += number[i]
+                        }
+                    }
+                }
+
+                document.getElementById("impares").innerHTML=impar;
+
+            }
+
+        </script>
+    </body>
+</html>

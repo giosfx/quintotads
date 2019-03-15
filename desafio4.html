@@ -1,0 +1,65 @@
+<html>
+    <body>
+        <p>Nome</p>
+        <input type="text" name="nome" id="nome">
+        <br><br>
+        <p>Idade</p>
+        <input type="text" name="idade" id="age">
+        <p>Sexo</p> 
+        <input type="radio" name="genero" value="m">Masculino
+        <input type="radio" name="genero" value="f">Feminino
+        <br><br>
+        <button type="button" onclick="add()">Adicionar</button>
+        <button type="button" onclick="woman()">Listar Mulheres</button>
+        <button type="button" onclick="men()">Listar Homens</button><br>
+        <button type="button" onclick="child()">Listar Crianças</button>
+        <button type="button" onclick="teen()">Listar Adolescente</button>
+        <div id="lista"></div>
+
+    </body>
+    <script>
+        let vetor=[];
+        function add(){
+            let nome=document.getElementById("nome").value;
+            let idade=parseInt(document.getElementById("age").value);
+            let gender=document.querySelector('input[name="genero"]:checked').value;
+
+            vetor.push({nome:nome,idade:idade,genero:gender});
+
+            //document.getElementById("lista").innerHTML=JSON.stringify(vetor);
+        }
+
+        function woman(){
+            document.getElementById("lista").innerHTML="<p>Mulheres<p>"
+            for (let i=0;i<vetor.length;i++){
+                if (vetor[i].genero=="f")
+                    document.getElementById("lista").innerHTML+=vetor[i].nome+"<br>";
+            }
+        }    
+
+        function men(){
+            document.getElementById("lista").innerHTML="<p>Homens<p>"
+            for (let i=0;i<vetor.length;i++){
+                if (vetor[i].genero=="m")
+                    document.getElementById("lista").innerHTML+=vetor[i].nome+"<br>";
+            }
+        }
+
+        function child(){
+            document.getElementById("lista").innerHTML="<p>Crianças<p>"
+            for (let i=0;i<vetor.length;i++){
+                if (vetor[i].idade<=12)
+                    document.getElementById("lista").innerHTML+=vetor[i].nome+"<br>";
+            }
+        }
+        
+        function teen(){
+            document.getElementById("lista").innerHTML="<p>Adolescentes<p>"
+            for (let i=0;i<vetor.length;i++){
+                if (vetor[i].idade>=12 || vetor[i].idadel <= 18)
+                    document.getElementById("lista").innerHTML+=vetor[i].nome+"<br>";
+            }
+        }       
+        
+    </script>
+</html>

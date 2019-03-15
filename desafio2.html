@@ -2,7 +2,7 @@
 <html>
 
 <body>
-
+    <h1>Listar</h1><br>
     Nome:<br>
     <input type="text" name="nome" id="nome">
     <input type="radio" name="genero" value="m"> Masculino
@@ -10,16 +10,19 @@
     <button type="button" onclick="add()">Adicionar</button>
     <button type="button" onclick="mulheres()">Listar Mulheres</button>
     <button type="button" onclick="homens()">Listar Homens</button>
-
+    <br><br>
+    <p id="tituloHomens"></p>
+    <p id="listaHomens"></p>
+    <p id="tituloMulhers"></p>
+    <p id="listaMulheres"></p>
     <br><br>
 
     <script>
-        let array = [];
-        let genero = "";
-        let escrever;
+        var array = [];
+
         function add() {
 
-            genero = document.querySelector('input[name="genero"]:checked').value;
+            let genero = document.querySelector('input[name="genero"]:checked').value;
             let nome = document.getElementById("nome").value;
 
             array.push({ nome: nome, genero: genero });
@@ -29,7 +32,7 @@
         function mulheres() {
             for (let i = 0; i < array.length; i++) {
                 if (array[i].genero == "f") {
-                    alert(JSON.stringify(array[i]));
+                    document=(JSON.stringify(array[i]));
                 }
             }
         }
